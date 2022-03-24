@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Cálculo da Media final</title>
+</head>
+
+<body>
+  <div class="container">
+  
+  <h2>Cálculo da Media final!</h2>
+    
+      <p class="pTri">1 Trimestre: </p> <br>
+    
+      <input type="text" id="n1"> <br>
+    
+    <p>2 Trimestre: </p> <br>
+    
+    <input type="text" id="n2">  <br>
+    
+    <p>3 Trimestre: </p> <br>
+    
+    <input type="text" id="n3"> <br>
+    
+    <h5 class="result" id="resul">
+    A sua Media final é: 
+    <label id="mf"></label>
+    
+    </h5> <br>
+    <h4 id="estado">  </h4> <br>
+    
+    <div class="btnclc">
+    <botton id="btncalc" type="botton" onclick="Media()">Calcular</botton>
+    </div>
+    
+    
+    
+    
+    <!--   <tr>
+         <th>1o Trimestre</th>
+         <th>2o Trimestre</th>
+         <th>3o Trimestre</th>
+       </tr>
+       <tr>
+         <td>
+           <input type="text" id="n1">
+         </td>
+         <td>
+           <input id="n2" type="text">
+         </td>
+         <td>
+           <input id="n3" type="text">
+         </td> 
+       </tr>
+       <tr>
+         <td colspan="2" id="resul">A sua Media final é <label id="mf"></label></td>
+         <td><botton id="btncalc" type="botton" onclick="Media()">Calcular</botton></td>
+       </tr>-->
+       
+         
+       
+       
+
+
+
+
+  
+  <script>
+    function Media() {
+    
+    try {
+      var x1 = document.getElementById("n1").value;
+      if (x1 == "")  x1 = 0;
+      if (isNaN(x1)) throw "Digite um número valido no 1 campo";
+      if (x1>20) throw "O número do 1 campo é inválido";
+      var x2 = document.getElementById("n2").value;
+      if (x2 == "") x2=0;
+      if (isNaN(x2)) throw "Digite um número valido no 2 campo";
+      if (x2>20) throw "O número do 2 campo é inválido";
+      var x3 = document.getElementById("n3").value;
+      if (x3 == "") x3=0;
+      if (isNaN(x3)) throw "Digite um número valido no 3 campo";
+      if (x3>20) throw "O número do 3 campo é inválido";
+      
+      var l1 = parseInt (x1)+parseInt (x2)+parseInt (x3);
+      //document.getElementById ("resul").innerHTML = "A sua média final é  =>" + (l1/3);
+     var l2 = l1/3;
+     var f = Math.round(l2);
+      if (f <= 9) {
+        document.getElementById("estado").innerHTML = "Reprovado!";
+        
+      } else{
+        
+       document.getElementById("estado").innerHTML = "Aprovado!"  
+      }
+        
+     //var  mediaFinal = math.round(l2 / 10) * 10;
+     document.getElementById("mf").innerHTML = f;
+     // alert(l2);
+      } catch(err) {
+         var g = document.getElementById("resul");
+         //g.innerHTML = "Erro:  " + err + ".";
+         alert ("Erro:  " + err + ".");
+      }
+    
+      
+      
+    }
+  
+  </script>
+  
+  </div>  
+</body>
+</html>
